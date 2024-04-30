@@ -5,12 +5,22 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-void main() {
+// void main() {
+//   runApp(const MyApp());
+// }
+
+//非同期通信
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.cuurentPlatform,
+  );
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,18 +42,32 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+const collectionKey = 'hayaharu_todo';
+
 class _MyHomePageState extends State<MyHomePage> {
   List<Item> items = [];
   final TextEditingController textEditingController = TextEditingController();
+  late FirebaseFirestore firestore;
 
   @override
   void initState() {
     super.initState();
+    firestore = FirebaseFirestore.instance;
     watch();
   }
 
   //データ更新監視
-  Future<void> watch() async {}
+  Future<void> watch() async {
+    firestore.collection(collectionKey).snapshots().listen((event) {
+      setState(() {
+        items = event.docs.reversed.map((document) =>
+            Item.fromSnapshot(
+              document.id,
+              document.data(),
+            ),).toList(growable: false);
+      });
+    });
+  }
 
   //保存する
   Future<void> save() async {}
