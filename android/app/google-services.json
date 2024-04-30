@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "731104496349",
+    "project_id": "futter-todo",
+    "storage_bucket": "futter-todo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731104496349:android:f2a162a5a768b0bbf06934",
+        "android_client_info": {
+          "package_name": "com.example.chapter04"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrxuQ0bsBQQFOvLdcazkkP1ceSepjRs4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731104496349:android:25bf2b0e8480ab13f06934",
+        "android_client_info": {
+          "package_name": "com.example.todo_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrxuQ0bsBQQFOvLdcazkkP1ceSepjRs4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
